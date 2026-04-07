@@ -2,20 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Fillable(['conversation_id', 'user_low_id', 'user_high_id'])]
 class DirectConversation extends Model
 {
     protected $primaryKey = 'conversation_id';
     public $incrementing = false;
     protected $keyType = 'int';
-
-    protected $fillable = [
-        'conversation_id',
-        'user_low_id',
-        'user_high_id',
-    ];
 
     public function conversation(): BelongsTo
     {

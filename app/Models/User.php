@@ -40,27 +40,27 @@ class User extends Authenticatable
         ];
     }
 
-    public function inviteLink(): HasOne|User
+    public function inviteLink(): HasOne
     {
         return $this->hasOne(InviteLink::class, 'user_id');
     }
 
-    public function sentMessages(): User|HasMany
+    public function sentMessages(): HasMany
     {
         return $this->hasMany(Message::class, 'sender_id');
     }
 
-    public function uploadedMedia(): User|HasMany
+    public function uploadedMedia(): HasMany
     {
         return $this->hasMany(Media::class, 'uploader_id');
     }
 
-    public function blocksGiven(): User|HasMany
+    public function blocksGiven(): HasMany
     {
         return $this->hasMany(Block::class, 'blocker_id');
     }
 
-    public function blocksReceived(): User|HasMany
+    public function blocksReceived(): HasMany
     {
         return $this->hasMany(Block::class, 'blocked_id');
     }
@@ -72,12 +72,12 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    public function directConversationsAsLow(): User|HasMany
+    public function directConversationsAsLow(): HasMany
     {
         return $this->hasMany(DirectConversation::class, 'user_low_id');
     }
 
-    public function directConversationsAsHigh(): User|HasMany
+    public function directConversationsAsHigh(): HasMany
     {
         return $this->hasMany(DirectConversation::class, 'user_high_id');
     }

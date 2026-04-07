@@ -2,22 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Fillable(['conversation_id', 'user_id', 'last_received_message_id', 'last_read_message_id'])]
 class ConversationParticipant extends Model
 {
     public $incrementing = false;
     protected $primaryKey = null;
     protected $keyType = 'int';
-
-    protected $fillable = [
-        'conversation_id',
-        'user_id',
-        'last_received_message_id',
-        'last_read_message_id',
-    ];
 
     protected function casts(): array
     {
@@ -50,7 +46,7 @@ class ConversationParticipant extends Model
     }
 
     #[Scope]
-    public function forUserInConversation($query, int $conversationId, int $userId): void
+    protected function forUserInConversation(Builder $query, int $conversationId, int $userId): void
     {
         $query->where('conversation_id', $conversationId)
             ->where('user_id', $userId);

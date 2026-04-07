@@ -12,7 +12,7 @@ class Conversation extends Model
 {
     use HasFactory;
 
-    public function direct(): HasOne|Conversation
+    public function direct(): HasOne
     {
         return $this->hasOne(DirectConversation::class, 'conversation_id');
     }
@@ -24,12 +24,12 @@ class Conversation extends Model
             ->withTimestamps();
     }
 
-    public function participantStates(): HasMany|Conversation
+    public function participantStates(): HasMany
     {
         return $this->hasMany(ConversationParticipant::class, 'conversation_id');
     }
 
-    public function messages(): HasMany|Conversation
+    public function messages(): HasMany
     {
         return $this->hasMany(Message::class, 'conversation_id');
     }
@@ -39,7 +39,7 @@ class Conversation extends Model
         return $this->hasOne(Message::class, 'conversation_id')->latestOfMany();
     }
 
-    public function blocks(): HasMany|Conversation
+    public function blocks(): HasMany
     {
         return $this->hasMany(Block::class, 'conversation_id');
     }

@@ -2,24 +2,24 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+#[Fillable([
+    'conversation_id',
+    'sender_id',
+    'type',      // text|image|video
+    'body',
+    'media_id',
+    'edited_at',
+])]
 class Message extends Model
 {
     use HasFactory;
     use SoftDeletes;
-
-    protected $fillable = [
-        'conversation_id',
-        'sender_id',
-        'type',      // text|image|video
-        'body',
-        'media_id',
-        'edited_at',
-    ];
 
     protected function casts(): array
     {
