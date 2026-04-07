@@ -34,10 +34,13 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        $locale = request()->getPreferredLanguage(['fr', 'en']) ?? 'en';
+
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'locale'   => $locale,
         ]);
     }
 }
