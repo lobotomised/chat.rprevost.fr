@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('conversation', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('blocker_id');
+            $table->unsignedBigInteger('blocked_id');
+            $table->unsignedBigInteger('conversation_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('blocker_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('blocked_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('conversation_id')->references('id')->on('conversations')->nullOnDelete();
+
+            $table->unique(['blocker_id', 'blocked_id']);
+            $table->index(['blocker_id', 'deleted_at']);
+            $table->index(['blocked_id', 'deleted_at']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('conversation');
+    }
+};
