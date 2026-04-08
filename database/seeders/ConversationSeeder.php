@@ -13,65 +13,41 @@ class ConversationSeeder extends Seeder
 {
     public function run(): void
     {
-        $users = User::all()->shuffle();
+        [$lowUser, $highUser] = User::limit(2)->orderBy('id')->get();
 
-        $pairs = $users->chunk(2);
+        $conversation = Conversation::create([
+            'type' => 'direct',
+        ]);
 
-        foreach ($pairs as $pair) {
-            if ($pair->count() < 2) {
-                continue;
-            }
+        DirectConversation::create([
+            'conversation_id' => $conversation->id,
+            'user_low_id' => $lowUser->id,
+            'user_high_id' => $highUser->id,
+        ]);
 
-            $pair = $pair->values();
-
-            $a = $pair->get(0);
-            $b = $pair->get(1);
-
-            $low = min($a->id, $b->id);
-            $high = max($a->id, $b->id);
-
-            $conversation = Conversation::create([
-                'type' => 'direct',
-            ]);
-
-            DirectConversation::create([
+/*        $messages = Message::factory()
+            ->count(rand(3, 15))
+            ->state(fn () => [
+                'type' => 'text',
                 'conversation_id' => $conversation->id,
-                'user_low_id' => $low,
-                'user_high_id' => $high,
-            ]);
+                'sender_id' => rand(0, 1) ? $lowUser->id : $highUser->id,
+            ])
+            ->create();
 
-            ConversationParticipant::create([
-                'conversation_id' => $conversation->id,
-                'user_id' => $a->id,
-            ]);
+        $lastMessage = $messages->last();
+*/
+        ConversationParticipant::create([
+            'conversation_id' => $conversation->id,
+            'user_id' => $lowUser->id,
+//            'last_received_message_id' => $lastMessage->id,
+//            'last_read_message_id' => $lastMessage->id,
+        ]);
 
-            ConversationParticipant::create([
-                'conversation_id' => $conversation->id,
-                'user_id' => $b->id,
-            ]);
-
-            // Messages
-            $messages = Message::factory()
-                ->count(rand(3, 15))
-                ->state(function () use ($conversation, $a, $b) {
-                    return [
-                        'conversation_id' => $conversation->id,
-                        'sender_id' => rand(0, 1) ? $a->id : $b->id,
-                    ];
-                })
-                ->create();
-
-            $lastMessage = $messages->last();
-
-            // États lu/reçu
-            foreach ([$a, $b] as $user) {
-                ConversationParticipant::where('conversation_id', $conversation->id)
-                    ->where('user_id', $user->id)
-                    ->update([
-                        'last_received_message_id' => $lastMessage->id,
-                        'last_read_message_id' => $lastMessage->id,
-                    ]);
-            }
-        }
+        ConversationParticipant::create([
+            'conversation_id' => $conversation->id,
+            'user_id' => $highUser->id,
+//            'last_received_message_id' => $lastMessage->id,
+//            'last_read_message_id' => $lastMessage->id,
+        ]);
     }
 }

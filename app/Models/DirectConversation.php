@@ -31,4 +31,9 @@ final class DirectConversation extends Model
         return $this->belongsTo(User::class, 'user_high_id');
     }
 
+    public function otherUser(int $currentUserId): User
+    {
+        return $this->user_low_id === $currentUserId ? $this->userHigh : $this->userLow;
+    }
+
 }
