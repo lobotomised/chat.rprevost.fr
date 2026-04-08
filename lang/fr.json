@@ -1,0 +1,36 @@
+{
+    "Login": "Connexion",
+    "Invitation detected. After login, you will be redirected to the conversation.": "Invitation détectée. Après connexion, vous serez redirigé vers la conversation.",
+    "Email": "Email",
+    "Password": "Mot de passe",
+    "Remember me": "Se souvenir de moi",
+    "Forgot password?": "Mot de passe oublié ?",
+    "Sign in": "Se connecter",
+    "No account?": "Pas de compte ?",
+    "Create an account": "Créer un compte",
+
+    "Invitation detected. After creating your account, you will be redirected to the conversation.": "Invitation détectée. Après création du compte, vous serez redirigé vers la conversation.",
+    "Username": "Nom d’utilisateur",
+    "Confirm password": "Confirmation",
+    "Create account": "Créer le compte",
+    "Already have an account?": "Déjà un compte ?",
+
+    "Forgot password": "Mot de passe oublié",
+    "Enter your email. You will receive a password reset link.": "Saisissez votre email. Vous recevrez un lien de réinitialisation.",
+    "Send link": "Envoyer le lien",
+    "Back to login": "Retour à la connexion",
+
+    "Reset password": "Réinitialiser le mot de passe",
+    "New password": "Nouveau mot de passe",
+    "Update": "Mettre à jour",
+
+    "Two-factor authentication": "Authentification à deux facteurs",
+    "Please confirm access to your account by entering the authentication code provided by your authenticator application.": "Veuillez confirmer l’accès à votre compte en saisissant le code fourni par votre application d’authentification.",
+    "Use authentication code": "Utiliser le code d’authentification",
+    "Use recovery code": "Utiliser un code de récupération",
+    "Authentication code": "Code d’authentification",
+    "Enter the 6-digit code from your authenticator app.": "Saisissez le code à 6 chiffres de votre application d’authentification.",
+    "Recovery code": "Code de récupération",
+    "Use one of your recovery codes if you cannot access your authenticator app.": "Utilisez un de vos codes de récupération si vous n’avez pas accès à votre application d’authentification.",
+    "Confirm": "Confirmer"
+}

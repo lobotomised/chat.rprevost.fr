@@ -10,10 +10,12 @@
         "laravel-notification-channels/webpush": "^10.5",
         "laravel/fortify": "^1.36",
         "laravel/framework": "^13.0",
-        "laravel/tinker": "^3.0"
+        "laravel/tinker": "^3.0",
+        "spatie/laravel-login-link": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "laravel-lang/lang": "^12.17",
         "laravel/boost": "^2.4",
         "laravel/pail": "^1.2.5",
         "laravel/pint": "^1.27",
@@ -60,7 +62,8 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan boost:update --ansi"
+            "@php artisan boost:update --ansi",
+            "@php artisan lang:update"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

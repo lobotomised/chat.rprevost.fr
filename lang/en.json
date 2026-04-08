@@ -1,0 +1,36 @@
+{
+    "Login": "Login",
+    "Invitation detected. After login, you will be redirected to the conversation.": "Invitation detected. After login, you will be redirected to the conversation.",
+    "Email": "Email",
+    "Password": "Password",
+    "Remember me": "Remember me",
+    "Forgot password?": "Forgot password?",
+    "Sign in": "Sign in",
+    "No account?": "No account?",
+    "Create an account": "Create an account",
+
+    "Invitation detected. After creating your account, you will be redirected to the conversation.": "Invitation detected. After creating your account, you will be redirected to the conversation.",
+    "Username": "Username",
+    "Confirm password": "Confirm password",
+    "Create account": "Create account",
+    "Already have an account?": "Already have an account?",
+
+    "Forgot password": "Forgot password",
+    "Enter your email. You will receive a password reset link.": "Enter your email. You will receive a password reset link.",
+    "Send link": "Send link",
+    "Back to login": "Back to login",
+
+    "Reset password": "Reset password",
+    "New password": "New password",
+    "Update": "Update",
+
+    "Two-factor authentication": "Two-factor authentication",
+    "Please confirm access to your account by entering the authentication code provided by your authenticator application.": "Please confirm access to your account by entering the authentication code provided by your authenticator application.",
+    "Use authentication code": "Use authentication code",
+    "Use recovery code": "Use recovery code",
+    "Authentication code": "Authentication code",
+    "Enter the 6-digit code from your authenticator app.": "Enter the 6-digit code from your authenticator app.",
+    "Recovery code": "Recovery code",
+    "Use one of your recovery codes if you cannot access your authenticator app.": "Use one of your recovery codes if you cannot access your authenticator app.",
+    "Confirm": "Confirm"
+}
