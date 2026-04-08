@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\InviteLink;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -36,11 +37,13 @@ class CreateNewUser implements CreatesNewUsers
 
         $locale = request()->getPreferredLanguage(['fr', 'en']) ?? 'en';
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'locale'   => $locale,
         ]);
+
+        new InviteLink()->generate($user);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 
 final class InviteLink extends Model
 {
@@ -21,5 +22,13 @@ final class InviteLink extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function generate(User $user): InviteLink
+    {
+        return InviteLink::updateOrCreate(
+            ['user_id' => $user->id],
+            ['token' => Str::random(32), 'rotated_at' => now()]
+        );
     }
 }

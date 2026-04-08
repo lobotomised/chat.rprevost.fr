@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             ->each(function (User $user) {
                 InviteLink::create([
                     'user_id' => $user->id,
-                    'token_hash' => hash('sha256', Str::random(64)),
+                    'token' => hash('sha256', Str::random(64)),
                 ]);
             });
     }
