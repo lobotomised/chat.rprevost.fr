@@ -3,19 +3,10 @@
 namespace App\Models;
 
 use App\Models\Traits\ExpirableSoftDeletable;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable([
-    'conversation_id',
-    'sender_id',
-    'type',      // text|image|video
-    'body',
-    'media_id',
-    'edited_at',
-])]
 class Message extends Model
 {
     use HasFactory;

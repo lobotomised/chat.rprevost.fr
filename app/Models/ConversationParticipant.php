@@ -3,14 +3,12 @@
 namespace App\Models;
 
 use Database\Factories\ConversationParticipantFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable(['conversation_id', 'user_id', 'last_received_message_id', 'last_read_message_id'])]
 class ConversationParticipant extends Model
 {
     /** @use HasFactory<ConversationParticipantFactory> */
