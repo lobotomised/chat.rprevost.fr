@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ConversationType;
 use Database\Factories\ConversationFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -15,6 +16,13 @@ final class Conversation extends Model
 {
     /** @use HasFactory<ConversationFactory> */
     use HasFactory;
+
+    protected function casts(): array
+    {
+        return [
+            'type' => ConversationType::class,
+        ];
+    }
 
     public function direct(): HasOne
     {

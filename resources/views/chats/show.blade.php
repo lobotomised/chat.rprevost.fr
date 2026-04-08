@@ -9,4 +9,4 @@
     @include('chats.partials.conversation', [
         'conversation' => $activeConversation,
     ])
-</x-layout-app>
+</x-layout.app>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\MediaType;
 use App\Models\Traits\ExpirableSoftDeletable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,6 +19,7 @@ final class Media extends Model
     protected function casts(): array
     {
         return [
+            'type' => MediaType::class,
             'size_bytes' => 'int',
             'deleted_at' => 'datetime',
         ];

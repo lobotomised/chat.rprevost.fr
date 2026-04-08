@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\MessageType;
 use App\Models\Traits\ExpirableSoftDeletable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,6 +16,7 @@ final class Message extends Model
     protected function casts(): array
     {
         return [
+            'type' => MessageType::class,
             'edited_at' => 'datetime',
             'deleted_at' => 'datetime',
         ];

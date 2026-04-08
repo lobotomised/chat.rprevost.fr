@@ -32,7 +32,7 @@
                     <div class="mt-1 text-sm text-gray-500 truncate">
                         @if($conversation->lastMessage === null)
                             {{ __('No messages yet') }}
-                        @elseif($conversation->lastMessage->type !== 'text')
+                        @elseif($conversation->lastMessage->type !== \App\Enums\MessageType::Text)
                             {{ __('Sent a media') }}
                         @else
                             {{ $conversation->lastMessage->body }}

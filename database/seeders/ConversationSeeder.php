@@ -25,29 +25,30 @@ class ConversationSeeder extends Seeder
             'user_high_id' => $highUser->id,
         ]);
 
-/*        $messages = Message::factory()
-            ->count(rand(3, 15))
+        $messages = Message::factory()
+            ->count(4)
             ->state(fn () => [
                 'type' => 'text',
+                'body' => fake()->sentence(),
                 'conversation_id' => $conversation->id,
                 'sender_id' => rand(0, 1) ? $lowUser->id : $highUser->id,
             ])
             ->create();
 
         $lastMessage = $messages->last();
-*/
+
         ConversationParticipant::create([
             'conversation_id' => $conversation->id,
             'user_id' => $lowUser->id,
-//            'last_received_message_id' => $lastMessage->id,
-//            'last_read_message_id' => $lastMessage->id,
+            'last_received_message_id' => $lastMessage->id,
+            'last_read_message_id' => $lastMessage->id,
         ]);
 
         ConversationParticipant::create([
             'conversation_id' => $conversation->id,
             'user_id' => $highUser->id,
-//            'last_received_message_id' => $lastMessage->id,
-//            'last_read_message_id' => $lastMessage->id,
+            'last_received_message_id' => $lastMessage->id,
+            'last_read_message_id' => $lastMessage->id,
         ]);
     }
 }
