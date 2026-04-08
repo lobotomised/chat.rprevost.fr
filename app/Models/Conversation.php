@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Conversation extends Model
+final class Conversation extends Model
 {
     /** @use HasFactory<ConversationFactory> */
     use HasFactory;

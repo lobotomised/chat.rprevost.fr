@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class InviteLink extends Model
+final class InviteLink extends Model
 {
     protected $primaryKey = 'user_id';
     public $incrementing = false;

@@ -15,7 +15,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use NotificationChannels\WebPush\HasPushSubscriptions;
 
 #[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
-class User extends Authenticatable
+final class User extends Authenticatable
 {
     use ExpirableSoftDeletable;
     /** @use HasFactory<UserFactory> */
